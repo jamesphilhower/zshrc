@@ -1,0 +1,51 @@
+
+alias gs='git status'
+alias gcu='git commit'
+alias gd='git diff'
+alias gl='git log'
+alias gb='git branch'
+alias gco='git checkout'
+alias gp='git push'
+alias gpl='git pull'
+alias gcl='git clone'
+alias ga='git add'
+alias gr='git remote'
+alias greset='git reset'
+alias grevert='git revert'
+alias gmerge='git merge'
+alias grebase='git rebase'
+alias gstash='git stash'
+alias gfetch='git fetch'
+
+function addalias() {
+    echo "Enter new command:"
+    read new_command
+    echo "Enter alias:"
+    read new_alias
+    echo alias $new_alias="'$new_command'" >> ~/.zshrc
+    source ~/.zshrc
+}
+
+function zshquery() {
+    grep -i -n "$1" ~/.zshrc
+}
+
+alias src='source ~/.zshrc'
+alias python=python3
+
+mypy() {
+    python /Users/jamesphilhower/scripting/"$1".py "${@:2}"
+}
+
+mynode() { 
+    node /Users/jamesphilhower/scripting/"$1".js "${@:2}"
+}
+
+export TARGET_DIR_ZSHRC="$HOME/zshrc-temp"
+alias synczsh='~/zshrc-temp/scripts/sync_zshrc.sh'
+alias updatezsh='~/zshrc-temp/scripts/update_zshrc.sh'
+alias synczsh='~/zshrc-temp/scripts/sync_zshrc.sh'
+alias updatezsh='~/zshrc-temp/scripts/update_zshrc.sh'
+alias synczsh='~/zshrc-temp/scripts/sync_zshrc.sh'
+alias updatezsh='~/zshrc-temp/scripts/update_zshrc.sh'
+export TARGET_DIR_ZSHRC='~/zshrc-temp'
