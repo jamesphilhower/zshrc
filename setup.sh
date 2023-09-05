@@ -30,7 +30,7 @@ clone_repo() {
 # Clone the zshrc git repo
 clone_repo "$REPO_URL_ZSHRC" "$TARGET_DIR_ZSHRC"
 
-cd "$TARGET_DIR_ZSHRC" || exit 1  # Exit if the directory doesn't exist
+eval cd "$TARGET_DIR_ZSHRC" || exit 1  # Exit if the directory doesn't exist
 
 # Make your scripts executable
 chmod +x scripts/*
@@ -40,13 +40,14 @@ echo "alias synczsh='$TARGET_DIR_ZSHRC/scripts/sync_zshrc.sh'" >> "$SOURCE_ZSHRC
 echo "alias updatezsh='$TARGET_DIR_ZSHRC/scripts/update_zshrc.sh'" >> "$SOURCE_ZSHRC"
 
 # Clone the scripting git repo relative to zshrc-temp
-clone_repo "$REPO_URL_SCRIPTING" "$TARGET_DIR_SCRIPTING"
+# TODO: Repo on git but not setup to handle this, needs to be unrolled
+# clone_repo "$REPO_URL_SCRIPTING" "$TARGET_DIR_SCRIPTING"
 
-# Update utility functions with the new relative path
-echo "mypy() {" >> "$SOURCE_ZSHRC"
-echo "    python $TARGET_DIR_SCRIPTING/\$1.py \"\${@:2}\"" >> "$SOURCE_ZSHRC"
-echo "}" >> "$SOURCE_ZSHRC"
+# # Update utility functions with the new relative path
+# echo "mypy() {" >> "$SOURCE_ZSHRC"
+# echo "    python $TARGET_DIR_SCRIPTING/\$1.py \"\${@:2}\"" >> "$SOURCE_ZSHRC"
+# echo "}" >> "$SOURCE_ZSHRC"
 
-echo "mynode() {" >> "$SOURCE_ZSHRC"
-echo "    node $TARGET_DIR_SCRIPTING/\$1.js \"\${@:2}\"" >> "$SOURCE_ZSHRC"
-echo "}" >> "$SOURCE_ZSHRC"
+# echo "mynode() {" >> "$SOURCE_ZSHRC"
+# echo "    node $TARGET_DIR_SCRIPTING/\$1.js \"\${@:2}\"" >> "$SOURCE_ZSHRC"
+# echo "}" >> "$SOURCE_ZSHRC"
