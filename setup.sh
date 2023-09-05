@@ -38,6 +38,7 @@ chmod +x scripts/*
 # Append alias for the sync script
 echo "alias synczsh='$TARGET_DIR_ZSHRC/scripts/sync_zshrc.sh'" >> "$SOURCE_ZSHRC"
 echo "alias updatezsh='$TARGET_DIR_ZSHRC/scripts/update_zshrc.sh'" >> "$SOURCE_ZSHRC"
+echo "export TARGET_DIR_ZSHRC='$TARGET_DIR_ZSHRC'" >> "$SOURCE_ZSHRC"
 
 # Clone the scripting git repo relative to zshrc-temp
 # TODO: Repo on git but not setup to handle this, needs to be unrolled

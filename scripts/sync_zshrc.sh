@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../config.sh
+source "$TARGET_DIR_ZSHRC/config.sh"
 
 # Function to build grep pattern and filter lines
 filter_lines() {

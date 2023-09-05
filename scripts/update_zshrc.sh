@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ../config.sh
+source "$TARGET_DIR_ZSHRC/config.sh"
 
 # Cleanup function to remove temporary directory
 cleanup() {
